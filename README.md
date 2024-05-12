@@ -9,3 +9,4 @@ Requisitos:
 * Xampp
 * Exportar la BBDD
 * Java 19 en adelante
+* Exportar las librerias JXMapViewer y common-logging
