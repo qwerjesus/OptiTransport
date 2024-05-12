@@ -234,7 +234,8 @@ public class Menu extends javax.swing.JFrame {
         jXMapViewer.setZoom(2);
         
         //eventos para mover el mouse
-        MouseInputListener mm = new PanMouseInputListener(jXMapViewer); 
+        MouseInputListener mm = new PanMouseInputListener(jXMapViewer);
+        jXMapViewer.addMouseListener(mm);
         jXMapViewer.addMouseMotionListener(mm);
     }
 }

@@ -31,7 +31,6 @@ public class Invitados extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         regresar = new javax.swing.JButton();
-        mapagenral1 = new javax.swing.JButton();
         jXMapViewer = new org.jxmapviewer.JXMapViewer();
         fondoL = new javax.swing.JLabel();
         CURSOR = new javax.swing.JPanel();
@@ -42,32 +41,20 @@ public class Invitados extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        regresar.setBackground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regresarActionPerformed(evt);
             }
         });
         jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
-
-        mapagenral1.setBackground(new java.awt.Color(255, 255, 255));
-        mapagenral1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mapageneral.png"))); // NOI18N
-        mapagenral1.setBorder(null);
-        mapagenral1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mapagenral1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mapagenral1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(mapagenral1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, -1, -1));
         jPanel1.add(jXMapViewer, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 370, 490));
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/invitados_1.png"))); // NOI18N
-        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 610, 530));
 
         CURSOR.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -113,67 +100,10 @@ public class Invitados extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_regresarActionPerformed
 
-    private void mapagenral1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mapagenral1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mapagenral1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Invitados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Invitados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Invitados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Invitados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -188,7 +118,6 @@ public class Invitados extends javax.swing.JFrame {
     private javax.swing.JLabel fondoL;
     private javax.swing.JPanel jPanel1;
     private org.jxmapviewer.JXMapViewer jXMapViewer;
-    private javax.swing.JButton mapagenral1;
     private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 
@@ -201,7 +130,8 @@ public class Invitados extends javax.swing.JFrame {
         jXMapViewer.setZoom(2);
         
         //eventos para mover el mouse
-        MouseInputListener mm = new PanMouseInputListener(jXMapViewer); 
+        MouseInputListener mm = new PanMouseInputListener(jXMapViewer);
+        jXMapViewer.addMouseListener(mm);
         jXMapViewer.addMouseMotionListener(mm);
     }
 }
