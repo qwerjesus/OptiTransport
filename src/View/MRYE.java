@@ -106,7 +106,7 @@ public class MRYE extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 420, 420));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 410, 330));
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N

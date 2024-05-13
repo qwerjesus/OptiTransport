@@ -72,7 +72,6 @@ public class Login extends javax.swing.JFrame {
         });
         Infoyin.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 40, 40));
 
-        invitados.setBackground(new java.awt.Color(255, 255, 255));
         invitados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/irinvitados.png"))); // NOI18N
         invitados.setBorder(null);
         invitados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -83,7 +82,6 @@ public class Login extends javax.swing.JFrame {
         });
         Infoyin.add(invitados, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
-        registrar.setBackground(new java.awt.Color(255, 255, 255));
         registrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/REGISTRAR.png"))); // NOI18N
         registrar.setBorder(null);
         registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -100,9 +98,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1.add(Infoyin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 490));
 
-        usuario.setBackground(new java.awt.Color(255, 255, 255));
-        usuario.setFont(new java.awt.Font("Microsoft Tai Le", 1, 12)); // NOI18N
-        usuario.setForeground(new java.awt.Color(0, 0, 0));
+        usuario.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         usuario.setToolTipText("");
         usuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +108,7 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 30));
 
-        contraseña.setBackground(new java.awt.Color(255, 255, 255));
+        contraseña.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseñaActionPerformed(evt);
@@ -120,8 +116,6 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 190, 30));
 
-        X.setBackground(new java.awt.Color(255, 255, 255));
-        X.setForeground(new java.awt.Color(0, 0, 0));
         X.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SALIIR.png"))); // NOI18N
         X.setBorder(null);
         X.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

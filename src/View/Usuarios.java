@@ -65,10 +65,10 @@ public class Usuarios extends javax.swing.JFrame {
         regresar = new javax.swing.JButton();
         aceptar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
-        Soli = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
         Tablausu = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        Soli = new javax.swing.JScrollPane();
+        Table = new javax.swing.JTable();
         fondoL = new javax.swing.JLabel();
         CURSOR = new javax.swing.JPanel();
 
@@ -158,20 +158,6 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 100, -1));
 
-        Table.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
-        Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "NOMBRE", "SOLICITUD"
-            }
-        ));
-        Table.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        Soli.setViewportView(Table);
-
-        jPanel1.add(Soli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 420, 440));
-
         jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,7 +181,21 @@ public class Usuarios extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
         Tablausu.setViewportView(jTable1);
 
-        jPanel1.add(Tablausu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 420, 440));
+        jPanel1.add(Tablausu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 400, 320));
+
+        Table.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "NOMBRE", "SOLICITUD"
+            }
+        ));
+        Table.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Soli.setViewportView(Table);
+
+        jPanel1.add(Soli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 400, 320));
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N

@@ -5,6 +5,7 @@ import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ public class Rutastc extends javax.swing.JFrame {
         new ImageIcon(getClass().getResource("/imagenes/5llegada.png"))
             };
          Timer timer;
+           LocalTime startTime;
 
    int xMouse,yMouse;
     public Rutastc() {
@@ -60,7 +62,7 @@ public class Rutastc extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ocultar.setBackground(new java.awt.Color(255, 255, 255));
-        ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/OCULTAR.png"))); // NOI18N
+        ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CONSULTARTC.png"))); // NOI18N
         ocultar.setBorder(null);
         ocultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ocultar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,10 +70,10 @@ public class Rutastc extends javax.swing.JFrame {
                 ocultarActionPerformed(evt);
             }
         });
-        jPanel1.add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 130, 100, -1));
+        jPanel1.add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 100, -1));
 
         solicitar.setBackground(new java.awt.Color(255, 255, 255));
-        solicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/SOLICITARruta.png"))); // NOI18N
+        solicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/solicitartc.png"))); // NOI18N
         solicitar.setBorder(null);
         solicitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         solicitar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,10 +81,10 @@ public class Rutastc extends javax.swing.JFrame {
                 solicitarActionPerformed(evt);
             }
         });
-        jPanel1.add(solicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 100, -1));
+        jPanel1.add(solicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 100, -1));
 
         regresar.setBackground(new java.awt.Color(255, 255, 255));
-        regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/r2.png"))); // NOI18N
+        regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regrsatranscaribe.png"))); // NOI18N
         regresar.setBorder(null);
         regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +92,7 @@ public class Rutastc extends javax.swing.JFrame {
                 regresarActionPerformed(evt);
             }
         });
-        jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 100, -1));
+        jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 100, -1));
 
         X101.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Rutas_X_101.png"))); // NOI18N
         X101.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0), new java.awt.Color(0, 0, 0)));
@@ -187,7 +189,7 @@ public class Rutastc extends javax.swing.JFrame {
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
      timer.stop();
-    Menu ver = new Menu();
+   Transcaribe ver = new Transcaribe();
     ver.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_regresarActionPerformed
@@ -210,21 +212,27 @@ public class Rutastc extends javax.swing.JFrame {
                 this.X102.setVisible(false);
                 this.X103.setVisible(false);
                 mostrarImagenAleatoria();
-                 timer.start();
+                timer.stop();
+            startTime = LocalTime.now(); 
+            timer.start();
                 break;
             case 1:
                 this.X101.setVisible(false);
                 this.X102.setVisible(true);
                 this.X103.setVisible(false);
                mostrarImagenAleatoria();
-                timer.start();
+               timer.stop();
+            startTime = LocalTime.now(); 
+            timer.start();;
                 break;
             case 2:
                 this.X101.setVisible(false);
                 this.X102.setVisible(false);
                 this.X103.setVisible(true);
                mostrarImagenAleatoria();
-                timer.start();
+                 timer.stop();
+            startTime = LocalTime.now(); 
+            timer.start();
                 break;
             default:
                 throw new AssertionError();
@@ -259,6 +267,15 @@ public class Rutastc extends javax.swing.JFrame {
         dialogo.pack();
         dialogo.setLocationRelativeTo(null);
         dialogo.setVisible(true);
+Timer removeTimer = new Timer(5000, new ActionListener() {
+         @Override
+    public void actionPerformed(ActionEvent e) {
+        dialogo.dispose();
+        timer.start();
+    }
+    });
+    removeTimer.setRepeats(false); 
+    removeTimer.start();
     }//GEN-LAST:event_solicitarActionPerformed
  
     private void ocultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ocultarActionPerformed

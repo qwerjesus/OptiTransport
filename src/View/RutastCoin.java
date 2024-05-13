@@ -4,6 +4,7 @@ import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalTime;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,7 +22,7 @@ public class RutastCoin extends javax.swing.JFrame {
         new ImageIcon(getClass().getResource("/imagenes/5llegada.png"))
             };
          Timer timer;
-
+  LocalTime startTime;
     int xMouse, yMouse;
 
     public RutastCoin() {
@@ -63,9 +64,10 @@ public class RutastCoin extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ocultar.setBackground(new java.awt.Color(255, 255, 255));
         ocultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CONSULTARCC.png"))); // NOI18N
         ocultar.setBorder(null);
-        ocultar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ocultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ocultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ocultarActionPerformed(evt);
@@ -73,9 +75,10 @@ public class RutastCoin extends javax.swing.JFrame {
         });
         jPanel1.add(ocultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 100, -1));
 
+        solicitar.setBackground(new java.awt.Color(255, 255, 255));
         solicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/solicitarCOO.png"))); // NOI18N
         solicitar.setBorder(null);
-        solicitar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        solicitar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         solicitar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitarActionPerformed(evt);
@@ -83,9 +86,10 @@ public class RutastCoin extends javax.swing.JFrame {
         });
         jPanel1.add(solicitar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 100, -1));
 
+        regresar.setBackground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regrsatranscaribeCC.png"))); // NOI18N
         regresar.setBorder(null);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regresarActionPerformed(evt);
@@ -105,7 +109,9 @@ public class RutastCoin extends javax.swing.JFrame {
         X03.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black, java.awt.Color.black));
         jPanel1.add(X03, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, 300));
 
+        consultar.setBackground(new java.awt.Color(255, 255, 255));
         consultar.setFont(new java.awt.Font("Open Sans", 1, 18)); // NOI18N
+        consultar.setForeground(new java.awt.Color(0, 0, 0));
         consultar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03" }));
         consultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +120,9 @@ public class RutastCoin extends javax.swing.JFrame {
         });
         jPanel1.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 100, 40));
 
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
         jTable1.setFont(new java.awt.Font("Open Sans", 1, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"01", "5 a.m./9 p.m.", null},
@@ -141,7 +149,7 @@ public class RutastCoin extends javax.swing.JFrame {
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Cootransurb.png"))); // NOI18N
-        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel1.add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 620, 540));
 
         CURSOR.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -182,11 +190,13 @@ public class RutastCoin extends javax.swing.JFrame {
     }//GEN-LAST:event_CURSORMousePressed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        Menu ver = new Menu();
+        Cointrasur ver = new Cointrasur();
         ver.setVisible(true);
+        timer.stop();
         this.dispose();
     }//GEN-LAST:event_regresarActionPerformed
-        private void iniciarTimer() {
+       
+    private void iniciarTimer() {
       
         timer = new Timer(12000, new ActionListener() {//no ponerlo en menos de 120
             @Override
@@ -202,6 +212,8 @@ public class RutastCoin extends javax.swing.JFrame {
                 this.X02.setVisible(false);
                 this.X03.setVisible(false);
                 mostrarImagenAleatoria();
+            timer.stop(); 
+            startTime = LocalTime.now(); 
                  timer.start();
                 break;
             case 1:
@@ -209,6 +221,8 @@ public class RutastCoin extends javax.swing.JFrame {
                 this.X02.setVisible(true);
                 this.X03.setVisible(false);
                mostrarImagenAleatoria();
+            timer.stop(); 
+            startTime = LocalTime.now(); 
                 timer.start();
                 break;
             case 2:
@@ -216,7 +230,10 @@ public class RutastCoin extends javax.swing.JFrame {
                 this.X02.setVisible(false);
                 this.X03.setVisible(true);
                mostrarImagenAleatoria();
-                timer.start();
+               timer.stop();
+            startTime = LocalTime.now(); 
+            timer.start();
+            
                 break;
             default:
                 throw new AssertionError();
@@ -251,6 +268,15 @@ public class RutastCoin extends javax.swing.JFrame {
         dialogo.pack();
         dialogo.setLocationRelativeTo(null);
         dialogo.setVisible(true);
+        Timer removeTimer = new Timer(5000, new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        dialogo.dispose();
+        timer.start();
+    }
+    });
+    removeTimer.setRepeats(false); 
+    removeTimer.start();
     
     }//GEN-LAST:event_solicitarActionPerformed
 
@@ -291,134 +317,6 @@ public class RutastCoin extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(RutastCoin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

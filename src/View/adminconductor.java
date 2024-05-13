@@ -153,7 +153,7 @@ public class adminconductor extends javax.swing.JFrame {
         Table.setSelectionBackground(new java.awt.Color(255, 255, 255));
         Soli.setViewportView(Table);
 
-        jPanel1.add(Soli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 420, 420));
+        jPanel1.add(Soli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 420, 290));
 
         jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -178,7 +178,7 @@ public class adminconductor extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
         Tablacoductor.setViewportView(jTable1);
 
-        jPanel1.add(Tablacoductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 420, 420));
+        jPanel1.add(Tablacoductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 420, 290));
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N

@@ -223,7 +223,7 @@ public class PerfilConductor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-        adminconductor verAC = new adminconductor();
+        Login verAC = new Login();
         verAC.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_regresarActionPerformed

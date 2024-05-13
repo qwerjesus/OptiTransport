@@ -138,7 +138,7 @@ public class Cointrasur extends javax.swing.JFrame {
     }//GEN-LAST:event_CURSORMousePressed
 
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
-      Login lr = new Login();
+        Menu lr = new Menu();
        lr.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_regresarActionPerformed
