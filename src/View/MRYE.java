@@ -36,9 +36,7 @@ public class MRYE extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         añadir = new javax.swing.JButton();
-        guardar = new javax.swing.JButton();
         regresar = new javax.swing.JButton();
-        eliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table1 = new javax.swing.JTable();
         fondoL = new javax.swing.JLabel();
@@ -58,17 +56,7 @@ public class MRYE extends javax.swing.JFrame {
                 añadirActionPerformed(evt);
             }
         });
-        jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 100, -1));
-
-        guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar2.png"))); // NOI18N
-        guardar.setBorder(null);
-        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                guardarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, -1));
+        jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 100, -1));
 
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
@@ -78,17 +66,7 @@ public class MRYE extends javax.swing.JFrame {
                 regresarActionPerformed(evt);
             }
         });
-        jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, -1));
-
-        eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
-        eliminar.setBorder(null);
-        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 100, -1));
+        jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 100, -1));
 
         Table1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
         Table1.setModel(new javax.swing.table.DefaultTableModel(
@@ -154,19 +132,11 @@ public class MRYE extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CURSORMousePressed
 
-    private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-      
-    }//GEN-LAST:event_guardarActionPerformed
-
     private void regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regresarActionPerformed
     Admin ver = new Admin();
     ver.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_regresarActionPerformed
-
-    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarActionPerformed
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:
@@ -272,9 +242,7 @@ public class MRYE extends javax.swing.JFrame {
     private javax.swing.JPanel CURSOR;
     private javax.swing.JTable Table1;
     private javax.swing.JButton añadir;
-    private javax.swing.JButton eliminar;
     private javax.swing.JLabel fondoL;
-    private javax.swing.JButton guardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton regresar;

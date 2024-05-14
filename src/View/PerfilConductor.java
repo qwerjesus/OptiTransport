@@ -56,7 +56,7 @@ public class PerfilConductor extends javax.swing.JFrame {
     
     private void cargarDatosConductor (){
         try {
-            String query = "SELECT * FROM conductores WHERE id = ?";
+            String query = "SELECT * FROM conductores WHERE IDT = ?";
             PreparedStatement pst = con.prepareStatement(query);
             pst.setInt(1, 1); // Reemplaza ID_DEL_CONDUCTOR_A_CARGAR con el ID del conductor deseado
 
