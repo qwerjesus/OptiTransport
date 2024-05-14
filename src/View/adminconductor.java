@@ -66,7 +66,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rechazar.png"))); // NOI18N
         rechazar.setBorder(null);
-        rechazar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rechazar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rechazar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rechazarActionPerformed(evt);
@@ -76,7 +76,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         eliminar.setBorder(null);
-        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
@@ -86,7 +86,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         vertable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/VertablaC.png"))); // NOI18N
         vertable.setBorder(null);
-        vertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        vertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         vertable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vertableActionPerformed(evt);
@@ -96,7 +96,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         solicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/versolicitar.png"))); // NOI18N
         solicitudes.setBorder(null);
-        solicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        solicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         solicitudes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 solicitudesActionPerformed(evt);
@@ -106,7 +106,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar2.png"))); // NOI18N
         guardar.setBorder(null);
-        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
@@ -116,7 +116,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regresarActionPerformed(evt);
@@ -126,7 +126,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Aceptar.png"))); // NOI18N
         aceptar.setBorder(null);
-        aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
@@ -136,7 +136,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
         modificar.setBorder(null);
-        modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -164,7 +164,7 @@ public class adminconductor extends javax.swing.JFrame {
 
             },
             new String [] {
-                "NOMBRE", "RUTA", "H_SALIDA", "H_ENTRADA", ""
+                "NOMBRE", "RUTA", "H_SALIDA", "H_ENTRADA", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -182,7 +182,7 @@ public class adminconductor extends javax.swing.JFrame {
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N
-        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 620, 540));
 
         CURSOR.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -347,8 +347,8 @@ public class adminconductor extends javax.swing.JFrame {
             Object[] datos = new Object[3];
             modeloA=(DefaultTableModel) TableA.getModel();
             while (rs.next()) {                
-                datos [0] = rs.getInt("ID");
-                datos [1] = rs.getString("NOMBRE");
+                datos [0] = rs.getInt("NOMBRE");
+                datos [1] = rs.getString("ID");
                 datos [2] = rs.getString("SOLICITUD");
                 
                 modeloA.addRow(datos);

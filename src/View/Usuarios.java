@@ -28,6 +28,7 @@ public class Usuarios extends javax.swing.JFrame {
    Conexion con1 = new Conexion();
    Connection conet;
    DefaultTableModel modelo;
+   DefaultTableModel modeloG;
    Statement st;
    ResultSet rs;
    
@@ -45,6 +46,7 @@ public class Usuarios extends javax.swing.JFrame {
         this.aceptar.setVisible(false);
         this.rechazar.setVisible(false);
         consultar();
+        consultarG();
     }
 
     /**
@@ -66,7 +68,7 @@ public class Usuarios extends javax.swing.JFrame {
         aceptar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         Tablausu = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableG = new javax.swing.JTable();
         Soli = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
         fondoL = new javax.swing.JLabel();
@@ -158,8 +160,8 @@ public class Usuarios extends javax.swing.JFrame {
         });
         jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 100, -1));
 
-        jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableG.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
+        TableG.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -175,8 +177,8 @@ public class Usuarios extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        Tablausu.setViewportView(jTable1);
+        TableG.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Tablausu.setViewportView(TableG);
 
         jPanel1.add(Tablausu, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 400, 320));
 
@@ -402,18 +404,40 @@ public class Usuarios extends javax.swing.JFrame {
         } catch (Exception e) {
         }
     }
+    
+    void consultarG(){
+        String sql="SELECT * FROM `UsuariosGeneral` WHERE 1";
+        
+        try {
+            conet= con1.gConnection();
+            st=conet.createStatement();
+            rs=st.executeQuery(sql);
+            Object[] datos = new Object[3];
+            modeloG=(DefaultTableModel) TableG.getModel();
+            while (rs.next()) {                
+                datos [0] = rs.getString("Nombre");
+                datos [1] = rs.getString("Rol"); 
+                datos [2] = rs.getString("Estado");
+                
+                modeloG.addRow(datos);
+            }
+            TableG.setModel(modeloG);
+            
+        } catch (Exception e) {
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CURSOR;
     private javax.swing.JScrollPane Soli;
     private javax.swing.JScrollPane Tablausu;
     private javax.swing.JTable Table;
+    private javax.swing.JTable TableG;
     private javax.swing.JButton aceptar;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel fondoL;
     private javax.swing.JButton guardar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton modificar;
     private javax.swing.JButton rechazar;
     private javax.swing.JButton regresar;
