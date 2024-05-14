@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 14-05-2024 a las 07:01:53
+-- Tiempo de generación: 14-05-2024 a las 07:33:11
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -77,6 +77,7 @@ DELIMITER ;
 --
 
 CREATE TABLE `datosc` (
+  `IDT` int(11) NOT NULL,
   `ID` int(15) NOT NULL,
   `NOMBRE` varchar(20) NOT NULL,
   `SOLICITUD` varchar(150) NOT NULL,
@@ -87,15 +88,19 @@ CREATE TABLE `datosc` (
 -- Volcado de datos para la tabla `datosc`
 --
 
-INSERT INTO `datosc` (`ID`, `NOMBRE`, `SOLICITUD`, `rol`) VALUES
-(21, 'wqe', 'qwe', 'usuario'),
-(1002193454, 'Nohemi', 'Tu puedes onichan', '');
+INSERT INTO `datosc` (`IDT`, `ID`, `NOMBRE`, `SOLICITUD`, `rol`) VALUES
+(1, 0, 'wqe', 'qwe', 'usuario'),
+(2, 0, 'Nohemi', 'Tu puedes onichan', '');
 
 --
 -- Disparadores `datosc`
 --
 DELIMITER $$
 CREATE TRIGGER `rolC` BEFORE INSERT ON `datosc` FOR EACH ROW SET NEW.rol = 'usuario'
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `usCGenAf` BEFORE INSERT ON `datosc` FOR EACH ROW INSERT INTO `datosu`(`NOMBRE`, `SOLICITUD`, `rol`) VALUES (NEW.NOMBRE,NEW.SOLICITUD,NEW.rol)
 $$
 DELIMITER ;
 
@@ -106,7 +111,8 @@ DELIMITER ;
 --
 
 CREATE TABLE `datosu` (
-  `ID` int(20) NOT NULL,
+  `IDT` int(11) NOT NULL,
+  `ID` int(11) DEFAULT NULL,
   `NOMBRE` varchar(15) DEFAULT NULL,
   `SOLICITUD` varchar(150) DEFAULT NULL,
   `rol` varchar(50) NOT NULL
@@ -116,17 +122,21 @@ CREATE TABLE `datosu` (
 -- Volcado de datos para la tabla `datosu`
 --
 
-INSERT INTO `datosu` (`ID`, `NOMBRE`, `SOLICITUD`, `rol`) VALUES
-(2, 'qwe', 'qwe', 'usuario'),
-(1002193453, 'Jesus', NULL, ''),
-(1002193519, 'Jesus', 'Mamamam no funciona:{', ''),
-(1002193534, 'toffyCun', 'funciona por el amor de Dios', '');
+INSERT INTO `datosu` (`IDT`, `ID`, `NOMBRE`, `SOLICITUD`, `rol`) VALUES
+(1, NULL, 'qwe', 'qwe', 'usuario'),
+(2, NULL, 'Jesus', NULL, ''),
+(3, NULL, 'Jesus', 'Mamamam no funciona:{', ''),
+(4, NULL, 'toffyCun', 'funciona por el amor de Dios', '');
 
 --
 -- Disparadores `datosu`
 --
 DELIMITER $$
 CREATE TRIGGER `cas` BEFORE INSERT ON `datosu` FOR EACH ROW SET NEW.rol = 'usuario'
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `usGenAf` AFTER INSERT ON `datosu` FOR EACH ROW INSERT INTO `datosu`(`NOMBRE`, `SOLICITUD`, `rol`) VALUES (NEW.NOMBRE,NEW.SOLICITUD,NEW.rol)
 $$
 DELIMITER ;
 
@@ -190,7 +200,7 @@ INSERT INTO `usuario` (`id`, `Foto`, `contraseña`, `correo`, `edad`, `telefono`
 --
 
 CREATE TABLE `UsuariosGeneral` (
-  `Id` varchar(50) NOT NULL,
+  `Id` int(11) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `Rol` varchar(50) NOT NULL,
   `Estado` varchar(50) NOT NULL
@@ -216,13 +226,13 @@ ALTER TABLE `conductores`
 -- Indices de la tabla `datosc`
 --
 ALTER TABLE `datosc`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`IDT`);
 
 --
 -- Indices de la tabla `datosu`
 --
 ALTER TABLE `datosu`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`IDT`);
 
 --
 -- Indices de la tabla `login`
@@ -237,6 +247,12 @@ ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `UsuariosGeneral`
+--
+ALTER TABLE `UsuariosGeneral`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -247,16 +263,28 @@ ALTER TABLE `conductores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de la tabla `datosc`
+--
+ALTER TABLE `datosc`
+  MODIFY `IDT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `datosu`
 --
 ALTER TABLE `datosu`
-  MODIFY `ID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1007193525;
+  MODIFY `IDT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `login`
 --
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `UsuariosGeneral`
+--
+ALTER TABLE `UsuariosGeneral`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
