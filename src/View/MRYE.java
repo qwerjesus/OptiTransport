@@ -2,15 +2,27 @@
 package View;
 
 import javax.swing.ImageIcon;
-
+import javax.swing.table.DefaultTableModel;
+import config.Conexion;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
 
 public class MRYE extends javax.swing.JFrame {
 
+    Conexion con1 = new Conexion();
+   Connection conet;
+   DefaultTableModel modelo;
+   Statement st;
+   ResultSet rs;
+    
    int xMouse,yMouse;
     public MRYE() {
         initComponents();
         this.setLocationRelativeTo(null);
           setIconImage(new ImageIcon(getClass().getResource("/imagenes/newlogo.png")).getImage());
+          
+           consultarB();
     }
 
     /**
@@ -28,7 +40,7 @@ public class MRYE extends javax.swing.JFrame {
         regresar = new javax.swing.JButton();
         eliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Table1 = new javax.swing.JTable();
         fondoL = new javax.swing.JLabel();
         CURSOR = new javax.swing.JPanel();
 
@@ -38,7 +50,6 @@ public class MRYE extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        añadir.setBackground(new java.awt.Color(255, 255, 255));
         añadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/añadir.png"))); // NOI18N
         añadir.setBorder(null);
         añadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -49,7 +60,6 @@ public class MRYE extends javax.swing.JFrame {
         });
         jPanel1.add(añadir, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 100, -1));
 
-        guardar.setBackground(new java.awt.Color(255, 255, 255));
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar2.png"))); // NOI18N
         guardar.setBorder(null);
         guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -60,7 +70,6 @@ public class MRYE extends javax.swing.JFrame {
         });
         jPanel1.add(guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 100, -1));
 
-        regresar.setBackground(new java.awt.Color(255, 255, 255));
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
         regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -71,7 +80,6 @@ public class MRYE extends javax.swing.JFrame {
         });
         jPanel1.add(regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 100, -1));
 
-        eliminar.setBackground(new java.awt.Color(255, 255, 255));
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         eliminar.setBorder(null);
         eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -82,29 +90,25 @@ public class MRYE extends javax.swing.JFrame {
         });
         jPanel1.add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 100, -1));
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Table1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
+        Table1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, "", null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "EMPRESA", "RUTAS", "SALIDA/ENTRADA", "ESTADO"
+                "EMPRESA", "RUTAS", "H_SALIDA", "H_ENTRADA", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
+        Table1.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(Table1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 410, 330));
 
@@ -217,16 +221,62 @@ public class MRYE extends javax.swing.JFrame {
             }
         });
     }
+    
+     void  consultarB(){
+    String sql="SELECT * FROM `conductores` WHERE 1";
+        try {
+        
+        System.out.println("Consulta SQL: " + sql);
+        
+        conet = con1.gConnection();
+        System.out.println("Conexión establecida con éxito.");
+        
+        st = conet.createStatement();
+        rs = st.executeQuery(sql);
+            
+            Object[] datos = new Object[5];
+            modelo=(DefaultTableModel) Table1.getModel();
+              while (rs.next()) {
+                  datos [0] = rs.getString("nombre_empresa");
+                  datos [1] = rs.getString("ruta");
+                  datos [2] = rs.getTime("hora_salida");
+                  datos [3] = rs.getTime("hora_entrada");
+                  datos [4] = rs.getString("estado");
+                  
+                   modelo.addRow(datos);
+              }
+        } catch (Exception e) {
+            e.printStackTrace();
+            Table1.setModel(modelo);
+        }
+        
+        finally {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (st != null) {
+                st.close();
+            }
+            if (conet != null) {
+                conet.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CURSOR;
+    private javax.swing.JTable Table1;
     private javax.swing.JButton añadir;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel fondoL;
     private javax.swing.JButton guardar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton regresar;
     // End of variables declaration//GEN-END:variables
 }

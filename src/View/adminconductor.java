@@ -12,9 +12,11 @@ public class adminconductor extends javax.swing.JFrame {
 
    Conexion con1 = new Conexion();
    Connection conet;
-   DefaultTableModel modelo;
+   DefaultTableModel modeloA;
+   DefaultTableModel modeloB;
    Statement st;
    ResultSet rs;
+   
    
     int xMouse, yMouse;
 
@@ -28,6 +30,7 @@ public class adminconductor extends javax.swing.JFrame {
         this.aceptar.setVisible(false);
         this.rechazar.setVisible(false);
         consultarA();
+        consultarB();
     }
 
     /**
@@ -49,9 +52,9 @@ public class adminconductor extends javax.swing.JFrame {
         aceptar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
         Soli = new javax.swing.JScrollPane();
-        Table = new javax.swing.JTable();
+        TableA = new javax.swing.JTable();
         Tablacoductor = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TableB = new javax.swing.JTable();
         fondoL = new javax.swing.JLabel();
         CURSOR = new javax.swing.JPanel();
 
@@ -141,8 +144,8 @@ public class adminconductor extends javax.swing.JFrame {
         });
         jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 430, 100, -1));
 
-        Table.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
-        Table.setModel(new javax.swing.table.DefaultTableModel(
+        TableA.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
+        TableA.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -150,33 +153,30 @@ public class adminconductor extends javax.swing.JFrame {
                 "NOMBRE", "ID", "SOLICITUD"
             }
         ));
-        Table.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        Soli.setViewportView(Table);
+        TableA.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Soli.setViewportView(TableA);
 
         jPanel1.add(Soli, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 420, 290));
 
-        jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TableB.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
+        TableB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, "", null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "NOMBRE", "RUTA", "BUS", "ESTADO"
+                "NOMBRE", "RUTA", "H_SALIDA", "H_ENTRADA", ""
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        Tablacoductor.setViewportView(jTable1);
+        TableB.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        Tablacoductor.setViewportView(TableB);
 
         jPanel1.add(Tablacoductor, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, 420, 290));
 
@@ -345,31 +345,56 @@ public class adminconductor extends javax.swing.JFrame {
             st=conet.createStatement();
             rs=st.executeQuery(sql);
             Object[] datos = new Object[3];
-            modelo=(DefaultTableModel) Table.getModel();
+            modeloA=(DefaultTableModel) TableA.getModel();
             while (rs.next()) {                
                 datos [0] = rs.getInt("ID");
                 datos [1] = rs.getString("NOMBRE");
                 datos [2] = rs.getString("SOLICITUD");
                 
-                modelo.addRow(datos);
+                modeloA.addRow(datos);
             }
-            Table.setModel(modelo);
+            TableA.setModel(modeloA);
+            
+        } catch (Exception e) {
+        }
+    }
+    
+     void consultarB(){
+        String sql="SELECT * FROM `conductores` WHERE 1";
+        
+        try {
+            conet= con1.gConnection();
+            st=conet.createStatement();
+            rs=st.executeQuery(sql);
+            Object[] datos = new Object[5];
+            modeloB=(DefaultTableModel) TableB.getModel();
+            while (rs.next()) {                
+                  datos [0] = rs.getString("nombre_empresa");
+                  datos [1] = rs.getString("ruta");
+                  datos [2] = rs.getTime("hora_salida");
+                  datos [3] = rs.getTime("hora_entrada");
+                  datos [4] = rs.getString("estado");
+                
+                modeloB.addRow(datos);
+            }
+            TableB.setModel(modeloB);
             
         } catch (Exception e) {
         }
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CURSOR;
     private javax.swing.JScrollPane Soli;
     private javax.swing.JScrollPane Tablacoductor;
-    private javax.swing.JTable Table;
+    private javax.swing.JTable TableA;
+    private javax.swing.JTable TableB;
     private javax.swing.JButton aceptar;
     private javax.swing.JButton eliminar;
     private javax.swing.JLabel fondoL;
     private javax.swing.JButton guardar;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton modificar;
     private javax.swing.JButton rechazar;
     private javax.swing.JButton regresar;
