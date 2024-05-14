@@ -80,7 +80,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         rechazar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rechazar.png"))); // NOI18N
         rechazar.setBorder(null);
-        rechazar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        rechazar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rechazar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rechazarActionPerformed(evt);
@@ -90,7 +90,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         eliminar.setBorder(null);
-        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
@@ -100,7 +100,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         vertable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Vertablausu.png"))); // NOI18N
         vertable.setBorder(null);
-        vertable.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        vertable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         vertable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 vertableActionPerformed(evt);
@@ -110,7 +110,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         versolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/versolicitar.png"))); // NOI18N
         versolicitudes.setBorder(null);
-        versolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        versolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         versolicitudes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 versolicitudesActionPerformed(evt);
@@ -120,7 +120,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar2.png"))); // NOI18N
         guardar.setBorder(null);
-        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
@@ -130,7 +130,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regresarActionPerformed(evt);
@@ -140,7 +140,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         aceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Aceptar.png"))); // NOI18N
         aceptar.setBorder(null);
-        aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        aceptar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aceptarActionPerformed(evt);
@@ -150,7 +150,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         modificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/modificar.png"))); // NOI18N
         modificar.setBorder(null);
-        modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        modificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -161,13 +161,10 @@ public class Usuarios extends javax.swing.JFrame {
         jTable1.setFont(new java.awt.Font("Open Sans", 1, 10)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "NOMBRE", "CONTRASEÑA", "ROL"
+                "NOMBRE", "ROL", "ESTADO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -199,7 +196,7 @@ public class Usuarios extends javax.swing.JFrame {
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N
-        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 620, 540));
 
         CURSOR.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {

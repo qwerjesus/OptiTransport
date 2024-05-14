@@ -52,7 +52,7 @@ public class MRYE extends javax.swing.JFrame {
 
         añadir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/añadir.png"))); // NOI18N
         añadir.setBorder(null);
-        añadir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        añadir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         añadir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 añadirActionPerformed(evt);
@@ -62,7 +62,7 @@ public class MRYE extends javax.swing.JFrame {
 
         guardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/guardar2.png"))); // NOI18N
         guardar.setBorder(null);
-        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        guardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarActionPerformed(evt);
@@ -72,7 +72,7 @@ public class MRYE extends javax.swing.JFrame {
 
         regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regresar (2).png"))); // NOI18N
         regresar.setBorder(null);
-        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        regresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 regresarActionPerformed(evt);
@@ -82,7 +82,7 @@ public class MRYE extends javax.swing.JFrame {
 
         eliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar.png"))); // NOI18N
         eliminar.setBorder(null);
-        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        eliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 eliminarActionPerformed(evt);
@@ -110,11 +110,11 @@ public class MRYE extends javax.swing.JFrame {
         Table1.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(Table1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 410, 330));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 400, 330));
 
         fondoL.setBackground(new java.awt.Color(255, 255, 255));
         fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MYE.png"))); // NOI18N
-        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        fondoL.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 620, 540));
 
         CURSOR.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
