@@ -213,7 +213,7 @@ public class MRYE extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MRYE().setVisible(true);
+//                new MRYE().setVisible(true);
             }
         });
     }
